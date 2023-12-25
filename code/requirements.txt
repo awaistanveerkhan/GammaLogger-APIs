@@ -1,0 +1,6 @@
+Flask==2.1.1
+numpy==1.21.2
+textblob==0.15.3
+keras-preprocessing==1.1.2
+keras-applications==1.0.8
+keras==2.6.0
