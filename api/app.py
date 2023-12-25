@@ -7,33 +7,27 @@ from textblob import TextBlob
 from keras.applications.vgg16 import preprocess_input
 from keras.preprocessing.image import load_img, img_to_array
 from keras.preprocessing.sequence import pad_sequences
-from keras.models import Model,load_model
+from keras.models import load_model
 
 app = Flask(__name__)
-'''
-github_dir = 'https://awaistanveerkhan.github.io/GammaLogger-APIs/'
 
 
-
-
-
-with open(os.path.join(github_dir,'text_inference/text_inference_scaler.pkl'), 'rb') as scaler_file:
+with open(os.path.join('text_inference/text_inference_scaler.pkl'), 'rb') as scaler_file:
     text_inference_scaler = pickle.load(scaler_file)
 
-with open(os.path.join(github_dir,'text_inference/text_inference_dictionary.pkl'), 'rb') as dict_file:
+with open(os.path.join('text_inference/text_inference_dictionary.pkl'), 'rb') as dict_file:
     dict_alpha = pickle.load(dict_file)
 
-with open(os.path.join(github_dir,'text_inference/text_inference_machine_learning_model.pkl'), 'rb') as model_file:
+with open(os.path.join('text_inference/text_inference_machine_learning_model.pkl'), 'rb') as model_file:
     text_inference_model = pickle.load(model_file)
 
-with open(os.path.join(github_dir,'image_inference/tokenizer.pkl'), 'rb') as tokenizer_file:
+with open(os.path.join('image_inference/tokenizer.pkl'), 'rb') as tokenizer_file:
     image_inference_tokenizer = pickle.load(tokenizer_file)
 
-with open(os.path.join(github_dir,'image_inference/vgg16.pkl'), 'rb') as vgg16_file:
+with open(os.path.join('image_inference/vgg16.pkl'), 'rb') as vgg16_file:
     vgg_model = pickle.load(vgg16_file)
 
-image_inference_model = load_model(os.path.join(github_dir,'image_inference_model.h5'))
-'''
+image_inference_model = load_model(os.path.join('image_inference_model.h5'))
 
 @app.route('/predict_character', methods=['POST'])
 def predict_character():
@@ -75,7 +69,6 @@ def predict_character():
     except Exception as e:
         return jsonify({'error': str(e)})
 
-'''
 def index_to_word(integer, tokenizer):
   for word, index in tokenizer.word_index.items():
     if index == integer:
@@ -129,7 +122,6 @@ def predict_caption():
         
         except Exception as e:
             return jsonify({'error': str(e)})
-'''
 
 if __name__ == '__main__':
     app.run()

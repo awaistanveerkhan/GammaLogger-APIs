@@ -2,7 +2,7 @@
     "version" : 2,
     "builds" : [
         {
-            "src" : "/code/app.py",
+            "src" : "serverless.py",
             "use" : "@vercel/python",
             "config" : {"runtime" : "python3.9"}
         }
@@ -10,7 +10,7 @@
     "routes" : [
         {
             "src" : "/(.*)",
-            "dest" : "/code/app.py"
+            "dest" : "serverless.py"
         }
     ]
 }
