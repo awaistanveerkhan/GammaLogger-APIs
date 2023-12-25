@@ -9,11 +9,12 @@ from keras.preprocessing.image import load_img, img_to_array
 from keras.preprocessing.sequence import pad_sequences
 from keras.models import Model,load_model
 
-
+app = Flask(__name__)
+'''
 github_dir = 'https://awaistanveerkhan.github.io/GammaLogger-APIs/'
 
 
-app = Flask(__name__)
+
 
 
 with open(os.path.join(github_dir,'text_inference/text_inference_scaler.pkl'), 'rb') as scaler_file:
@@ -32,7 +33,7 @@ with open(os.path.join(github_dir,'image_inference/vgg16.pkl'), 'rb') as vgg16_f
     vgg_model = pickle.load(vgg16_file)
 
 image_inference_model = load_model(os.path.join(github_dir,'image_inference_model.h5'))
-
+'''
 
 @app.route('/predict_character', methods=['POST'])
 def predict_character():
