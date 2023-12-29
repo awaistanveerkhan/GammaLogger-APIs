@@ -1,0 +1,1 @@
+web : gunicorn gammalogger_apis:app
