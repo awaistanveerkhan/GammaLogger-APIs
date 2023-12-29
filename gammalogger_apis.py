@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 import os,joblib
 from textblob import TextBlob
 import tempfile
@@ -35,7 +35,7 @@ image_inference_model = load_model(os.path.join(image_base_dir, 'image_inference
 
 @app.route('/')
 def default_route():
-    return "Hello, this is GammaLogger App's APIs. You're visiting the default page."
+    return render_template('index.html')
 
 
 @app.route('/predict_character', methods=['POST'])
