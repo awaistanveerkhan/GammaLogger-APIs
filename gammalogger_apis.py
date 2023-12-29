@@ -33,6 +33,11 @@ vgg_model = load_model(os.path.join(image_base_dir, 'vgg16.h5'))
 
 image_inference_model = load_model(os.path.join(image_base_dir, 'image_inference_model.h5'))
 
+@app.route('/')
+def default_route():
+    return "Hello, this is GammaLogger App's APIs. You're visiting the default page."
+
+
 @app.route('/predict_character', methods=['POST'])
 def predict_character():
     try:
