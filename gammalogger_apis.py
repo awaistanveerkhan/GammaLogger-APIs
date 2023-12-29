@@ -35,7 +35,9 @@ image_inference_model = load_model(os.path.join(image_base_dir, 'image_inference
 
 @app.route('/')
 def default_route():
-    return render_template('index.html')
+    with open('index.html', 'r') as html_file:
+        content = html_file.read()
+    return content
 
 
 @app.route('/predict_character', methods=['POST'])
@@ -141,4 +143,4 @@ def predict_caption():
         return jsonify({'error': str(e)})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=int(os.environ.get('PORT', 5000)))
