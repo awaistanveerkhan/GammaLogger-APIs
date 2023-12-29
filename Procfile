@@ -1,1 +1,1 @@
-web: gunicorn gammalogger_apis:app --log-file=-
+web:gunicorn gammalogger_apis:app
